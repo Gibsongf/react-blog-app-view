@@ -1,5 +1,3 @@
-
-
 async function setupFetch(url, reqMethod = "get", body) {
     const reqConfig = {
         method: reqMethod,
@@ -45,15 +43,16 @@ export async function getIndexData() {
     }
 }
 
-
-
 export async function getPostDetails(id) {
     const url = `http://localhost:5000/public/post/${id}`;
     const data = await setupFetch(url, "get");
     return data;
 }
-
-
+export async function getAuthorDetails(id) {
+    const url = `http://localhost:5000/public/author/${id}`;
+    const data = await setupFetch(url, "get");
+    return data;
+}
 
 export async function newComment(postID, formData) {
     const url = `http://localhost:5000/api/post/${postID}/comment`;

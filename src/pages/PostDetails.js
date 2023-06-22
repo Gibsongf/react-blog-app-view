@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-import { getPostDetails} from "../Api";
+import { getPostDetails } from "../Api";
 import { NavLink } from "react-router-dom";
 import { PostComment, NewComment } from "../components/Comments";
 import "../styles/PostDetails.css";
 
-
-
-const PostInformation = ({ title, authorName,authorID, text, timestamp }) => {
-    console.log(authorID)
+const PostInformation = ({ title, authorName, authorID, text, timestamp }) => {
+    const saveAuthorId = () => {
+        if (localStorage["authorID"]) {
+            localStorage.removeItem("authorID");
+        }
+        localStorage.setItem("authorID", authorID);
+    };
     return (
         <div className="post-information">
             <h2 className="post-title">{title}</h2>
-            <NavLink to={`/author/${authorID}`} >
-            <h2 className="post-author">
-                {authorName}
-            </h2>
+            <NavLink to={`/author/${authorID}`} onClick={saveAuthorId}>
+                <h2 className="post-author">{authorName}</h2>
             </NavLink>
             <p className="post-text">{text}</p>
             <h5 className="post-timestamp">{timestamp}</h5>
@@ -22,7 +23,7 @@ const PostInformation = ({ title, authorName,authorID, text, timestamp }) => {
     );
 };
 export const PostDetails = (props) => {
-    const {postId } = props;
+    const { postId } = props;
     const [currentPost, setCurrentPost] = useState(null);
     const [postComments, setPostComments] = useState(null);
     const [authorName, setAuthorName] = useState(null);
@@ -52,8 +53,9 @@ export const PostDetails = (props) => {
 
     useEffect(() => {
         const fetchData = async () => {
+            const postID = localStorage["postID"];
             try {
-                const result = await getPostDetails(postId);
+                const result = await getPostDetails(postID);
                 const date = new Date(result.post.timestamp);
                 const options = {
                     year: "numeric",
@@ -66,9 +68,8 @@ export const PostDetails = (props) => {
 
                 result.post.timestamp = format_date;
                 setCurrentPost(result.post);
-                setAuthorName(result.author)
+                setAuthorName(result.author);
                 setPostComments(result.comment);
-                
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

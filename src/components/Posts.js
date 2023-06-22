@@ -12,12 +12,14 @@ const Post = ({ title, author, timestamp, text, setPostId, id }) => {
     const format_date = date.toLocaleString("en-US", options);
     return (
         <div className="post">
-            <NavLink to={`post/${id}`} onClick={setPostId}>
+            <NavLink to={`/post/${id}`} onClick={setPostId}>
                 <h2 className="title" id={id}>
                     {title}
                 </h2>
             </NavLink>
-            <h4>{author.first_name} {author.last_name}</h4>
+            <h4>
+                {author.first_name} {author.last_name}
+            </h4>
             <h5>{format_date}</h5>
             <p>{text}</p>
         </div>
@@ -25,13 +27,11 @@ const Post = ({ title, author, timestamp, text, setPostId, id }) => {
 };
 
 export const RenderAllPost = ({ allPost, setPostId }) => {
-    // console.log(data.allPost)
-    
     return (
         <div className="posts-content">
             {allPost.map((post) => {
-                if(!post){
-                    return ''
+                if (!post) {
+                    return "";
                 }
                 return (
                     <Post
