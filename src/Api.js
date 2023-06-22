@@ -10,7 +10,6 @@ async function setupFetch(url, reqMethod = "get", body) {
     }
     try {
         const response = await fetch(url, reqConfig);
-        console.log(response.status);
         if (response.status === 200) {
             const data = await response.json();
             return data;
@@ -33,7 +32,6 @@ export async function getIndexData() {
     };
     try {
         const response = await fetch(url, reqConfig);
-        console.log(response.status);
         if (response.status === 200) {
             const data = await response.json();
             return data;
@@ -57,6 +55,5 @@ export async function getAuthorDetails(id) {
 export async function newComment(postID, formData) {
     const url = `http://localhost:5000/public/post/${postID}/comment`;
     const data = await setupFetch(url, "post", formData);
-    // console.log(data)
     return data;
 }

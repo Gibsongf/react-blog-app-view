@@ -27,7 +27,6 @@ export const PostDetails = (props) => {
     const [currentPost, setCurrentPost] = useState(null);
     const [postComments, setPostComments] = useState(null);
     const [authorName, setAuthorName] = useState(null);
-
     const [wasUpdated, setWasUpdated] = useState(false);
 
     const RenderComments = () => {

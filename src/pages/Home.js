@@ -1,7 +1,7 @@
 import "../styles/App.css";
 import { RenderAllPost } from "../components/Posts";
 
-export const Home = ({ savePostId, data, wasUpdated, setWasUpdated }) => {
+export const Home = ({ savePostId, data }) => {
     if (!data) {
         // Data is still being fetched
         return <div>Loading...</div>;

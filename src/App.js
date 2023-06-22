@@ -24,7 +24,7 @@ function App() {
 
     const savePostId = (e) => {
         setPostId(e.target.id);
-        localStorage.setItem('postID',e.target.id)
+        localStorage.setItem("postID", e.target.id);
     };
     useEffect(() => {
         const fetchData = async () => {
@@ -60,7 +60,6 @@ function App() {
                     element={
                         <PostDetails
                             postId={postId}
-                            // author={data.author}
                             homeUpdate={wasUpdated}
                             setHomeUpdate={setWasUpdated}
                         />
@@ -68,14 +67,7 @@ function App() {
                 />
                 <Route
                     path="/author/:id"
-                    element={
-                        <AuthorDetails
-                            postId={postId}
-                            // author={data.author}
-                            homeUpdate={wasUpdated}
-                            setHomeUpdate={setWasUpdated}
-                        />
-                    }
+                    element={<AuthorDetails setPostId={savePostId} />}
                 />
             </Routes>
         </div>

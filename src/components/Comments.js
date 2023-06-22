@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { newComment } from "../Api";
-// import { ConfirmCommentDeletion, newContentValidator } from "./Forms";
+
 const newContentValidator = (e) => {
     const minLen = { text: 10, title: 4, user_name: 4, comment_text: 4 };
     const el = e.target;
@@ -34,7 +34,6 @@ export const NewComment = (props) => {
     };
     return (
         <form method="post" className="new-comment-form">
-            {/* <label htmlFor="user_name">Name:</label> */}
             <input
                 placeholder="Name (min characters: 4)"
                 type="text"
@@ -42,7 +41,6 @@ export const NewComment = (props) => {
                 id="user_name"
                 onChange={handleInputChange}
                 required
-                // minLength={4}
             />
             <input
                 placeholder="Write a comment (min characters: 4)"
@@ -50,7 +48,6 @@ export const NewComment = (props) => {
                 name="comment_text"
                 id="comment_text"
                 required
-                // minLength={4}
                 onChange={handleInputChange}
             />
             <button onClick={handleSubmit} type="submit">
