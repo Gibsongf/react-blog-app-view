@@ -1,7 +1,19 @@
 import { useState } from "react";
-// import { newComment } from "../Api";
+import { newComment } from "../Api";
 // import { ConfirmCommentDeletion, newContentValidator } from "./Forms";
-
+const newContentValidator = (e) => {
+    const minLen = { text: 10, title: 4, user_name: 4, comment_text: 4 };
+    const el = e.target;
+    if (el.hasAttribute("required") && el.value.length < minLen[el.name]) {
+        el.setAttribute("style", "border-color:red");
+        el.className = "invalid";
+        return false;
+    } else {
+        el.setAttribute("style", "border-color:rgb(193, 186, 186)");
+        el.classList.remove("invalid");
+        return true;
+    }
+};
 export const NewComment = (props) => {
     const initialState = { user_name: "", comment_text: "" };
     const [formData, setFormData] = useState(initialState);
@@ -9,14 +21,15 @@ export const NewComment = (props) => {
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        // setValidData(newContentValidator(e));
+        setValidData(newContentValidator(e));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validData) {
-            // await newComment(props.postID, formData);
+            await newComment(props.postID, formData);
             props.setWasUpdated(!props.wasUpdated);
+            e.target.parentElement.reset();
         }
     };
     return (
@@ -48,7 +61,7 @@ export const NewComment = (props) => {
 };
 
 export const PostComment = (props) => {
-    const { userName, text, timestamp} = props;
+    const { userName, text, timestamp } = props;
     const date = new Date(timestamp);
     const options = {
         year: "numeric",
@@ -63,8 +76,6 @@ export const PostComment = (props) => {
             <p className="comment-username">{userName}</p>
             <p className="comment-timestamp">{format_date}</p>
             <p className="comment-text">{text}</p>
-
-            
         </div>
     );
 };

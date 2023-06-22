@@ -55,7 +55,7 @@ export async function getAuthorDetails(id) {
 }
 
 export async function newComment(postID, formData) {
-    const url = `http://localhost:5000/api/post/${postID}/comment`;
+    const url = `http://localhost:5000/public/post/${postID}/comment`;
     const data = await setupFetch(url, "post", formData);
     // console.log(data)
     return data;

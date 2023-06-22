@@ -75,7 +75,7 @@ export const PostDetails = (props) => {
             }
         };
         fetchData();
-    }, [postId]);
+    }, [postId, wasUpdated]);
 
     if (!currentPost) {
         // Data is still being fetched
