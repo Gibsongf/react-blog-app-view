@@ -5,7 +5,7 @@ This project is part of [The Odin Project](https://www.theodinproject.com/), spe
 
 - View Blog Posts: Browse through a collection of blog posts created by the authors.
 - Read Post Content
-- View all Single author post
+- View all single author post
 - Leave Comments
 
 
