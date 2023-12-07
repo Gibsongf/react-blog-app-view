@@ -23,7 +23,7 @@ async function setupFetch(url, reqMethod = "get", body) {
     }
 }
 export async function getIndexData() {
-    const url = "http://localhost:5000/public";
+    const url = "https://blog-api-g.adaptable.app/public";
     const reqConfig = {
         method: "get",
         headers: {
@@ -42,18 +42,18 @@ export async function getIndexData() {
 }
 
 export async function getPostDetails(id) {
-    const url = `http://localhost:5000/public/post/${id}`;
+    const url = `https://blog-api-g.adaptable.app/public/post/${id}`;
     const data = await setupFetch(url, "get");
     return data;
 }
 export async function getAuthorDetails(id) {
-    const url = `http://localhost:5000/public/author/${id}`;
+    const url = `https://blog-api-g.adaptable.app/public/author/${id}`;
     const data = await setupFetch(url, "get");
     return data;
 }
 
 export async function newComment(postID, formData) {
-    const url = `http://localhost:5000/public/post/${postID}/comment`;
+    const url = `https://blog-api-g.adaptable.app/public/post/${postID}/comment`;
     const data = await setupFetch(url, "post", formData);
     return data;
 }

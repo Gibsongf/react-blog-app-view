@@ -16,7 +16,6 @@ const Header = () => {
     );
 };
 
-//
 function App() {
     const [data, setData] = useState(null);
     const [postId, setPostId] = useState();

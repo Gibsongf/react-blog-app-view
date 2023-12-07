@@ -9,12 +9,12 @@ const PostInformation = ({ title, authorName, authorID, text, timestamp }) => {
         if (localStorage["authorID"]) {
             localStorage.removeItem("authorID");
         }
-        localStorage.setItem("authorID", authorID);
+        localStorage.setItem("authorID", authorID._id);
     };
     return (
         <div className="post-information">
             <h2 className="post-title">{title}</h2>
-            <NavLink to={`/author/${authorID}`} onClick={saveAuthorId}>
+            <NavLink to={`/author/${authorID._id}`} onClick={saveAuthorId}>
                 <h2 className="post-author">{authorName}</h2>
             </NavLink>
             <p className="post-text">{text}</p>
