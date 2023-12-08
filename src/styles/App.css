@@ -126,3 +126,9 @@ body {
 .all-post-author-link {
   color: #007bff
 }
+
+.loading {
+  justify-self: center;
+  grid-column: 2;
+  margin-top: 20px;
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { RenderAllPost } from "../components/Posts";
 import "../styles/App.css";
 import { getAuthorDetails } from "../Api";
+import { Loading } from "../components/Loading";
 
 const AuthorInfo = (props) => {
     const { name } = props;
@@ -26,9 +27,10 @@ export const AuthorDetails = ({ setPostId }) => {
         };
         fetchData();
     }, []);
+
     if (!currentAuthor) {
         // Data is still being fetched
-        return <div>Loading...</div>;
+        return <Loading />;
     }
     return (
         <div className="content">

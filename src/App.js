@@ -44,7 +44,7 @@ function App() {
             <Header />
             <Routes>
                 <Route
-                    path="/"
+                    path="/react-blog-app/"
                     element={
                         <Home
                             savePostId={savePostId}

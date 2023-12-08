@@ -3,6 +3,7 @@ import { getPostDetails } from "../Api";
 import { NavLink } from "react-router-dom";
 import { PostComment, NewComment } from "../components/Comments";
 import "../styles/PostDetails.css";
+import { Loading } from "../components/Loading";
 
 const PostInformation = ({ title, authorName, authorID, text, timestamp }) => {
     const saveAuthorId = () => {
@@ -78,7 +79,7 @@ export const PostDetails = (props) => {
 
     if (!currentPost) {
         // Data is still being fetched
-        return <div>Loading...</div>;
+        return <Loading />;
     }
     return (
         <div className="post-content">
