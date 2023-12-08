@@ -9,7 +9,7 @@ import { AuthorDetails } from "./pages/AuthorDetails";
 const Header = () => {
     return (
         <div className="header">
-            <NavLink to="/" className="back-home">
+            <NavLink to="/react-blog-app/" className="back-home">
                 <h1>Blog</h1>
             </NavLink>
         </div>
