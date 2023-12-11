@@ -9,7 +9,7 @@ body {
 .App {
   margin-bottom: 25px;
   display: grid;
-  grid-template-columns: 25vw 50vw 25vw;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 25px;
 }
 
