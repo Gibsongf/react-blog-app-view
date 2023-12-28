@@ -9,7 +9,7 @@ import { AuthorDetails } from "./pages/AuthorDetails";
 const Header = () => {
     return (
         <div className="header">
-            <NavLink to="/react-blog-app/" className="back-home">
+            <NavLink to="/react-blog-app-view/" className="back-home">
                 <h1>Blog</h1>
             </NavLink>
         </div>
@@ -44,7 +44,7 @@ function App() {
             <Header />
             <Routes>
                 <Route
-                    path="/react-blog-app/"
+                    path="/react-blog-app-view/"
                     element={
                         <Home
                             savePostId={savePostId}
