@@ -1,8 +1,8 @@
 {
-  "name": "react-blog-app",
+  "name": "react-blog-app-view",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gibsongf.github.io/react-blog-app/",
+  "homepage": "https://gibsongf.github.io/react-blog-app-view/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
